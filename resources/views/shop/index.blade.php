@@ -3,51 +3,25 @@
     Shopping Cart
 @endsection
 @section('content')
+    @foreach($products->chunk(3) as $productChunk)
         <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"  class="img-fluid">
-                    <div class="caption">
-                        <h3>Product Title</h3>
-                        <p class="description">Product Description</p>
-                        <div class="clearfix">
-                            <p class="price float-left">Ksh 200</p>
-                            <a href="/add-to-cart/" class="btn btn-success float-right" role="button">
-                                Add
-                            </a>
+            @foreach($productChunk as $product)
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="{{ $product-> imagePath }}"  class="img-fluid">
+                        <div class="caption">
+                            <h3>{{ $product -> title }}</h3>
+                            <p class="description">{{ $product-> description }}</p>
+                            <div class="clearfix">
+                                <p class="price float-left">Ksh {{ $product-> price }}</p>
+                                <a href="/add-to-cart/" class="btn btn-success float-right" role="button">
+                                    Add
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"  class="img-fluid">
-                    <div class="caption">
-                        <h3>Product Title</h3>
-                        <p class="description">Product Description</p>
-                        <div class="clearfix">
-                            <p class="price float-left">Ksh 200</p>
-                            <a href="/add-to-cart/" class="btn btn-success float-right" role="button">
-                                Add
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"  class="img-fluid">
-                    <div class="caption">
-                        <h3>Product Title</h3>
-                        <p class="description">Product Description</p>
-                        <div class="clearfix">
-                            <p class="price float-left">Ksh 200</p>
-                            <a href="/add-to-cart/" class="btn btn-success float-right" role="button">
-                                Add
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
+    @endforeach
 @endsection
