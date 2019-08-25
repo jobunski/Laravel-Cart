@@ -14,7 +14,7 @@
                             <p class="description">{{ $product-> description }}</p>
                             <div class="clearfix">
                                 <p class="price float-left">Ksh {{ $product-> price }}</p>
-                                <a href="/add-to-cart/" class="btn btn-success float-right" role="button">
+                                <a  class="btn btn-success float-right" role="button" href="{{ route('product.addToCart',['$id'=>$product->id]) }}">
                                     Add
                                 </a>
                             </div>

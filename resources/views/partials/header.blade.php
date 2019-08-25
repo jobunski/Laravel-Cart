@@ -9,8 +9,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/shopping-cart">
-                        <i class="fas fa-shopping-cart"></i> Shopping Cart
+                    <a class="nav-link" href="{{ route('product.shoppingCart') }}">
+                        <i class="fas fa-shopping-cart">
+                        </i><span class="badge badge-light badge-notify">
+                            {{ Session::has('cart')? Session::get('cart')->totalQty : '' }}
+                        </span>
+                        Shopping Cart
                     </a>
                 </li>
                 <li class="nav-item dropdown">
