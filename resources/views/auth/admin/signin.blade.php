@@ -13,7 +13,7 @@
                     @endforeach
                 </div>
             @endif
-            <form action="{{ route('user.signin') }}" method="post">
+            <form action="{{ route('admin.signin') }}" method="post">
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" name="email" class="form-control" id="email" placeholder="Bob@gmail.com">
